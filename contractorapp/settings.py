@@ -31,14 +31,14 @@ SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
-
+ALLOWED_HOSTS = ['localhost']
 
 # Application definition
 
 INSTALLED_APPS = [
     'testdb',
     'environ',
+    'rest_framework',
     'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -64,7 +64,7 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 CORS_ORIGIN_ALLOW_ALL = False
 CORS_ORIGIN_WHITELIST = (
-  'http://localhost:3000',
+    'http://localhost:3000',
 )
 
 ROOT_URLCONF = 'contractorapp.urls'
