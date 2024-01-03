@@ -37,9 +37,11 @@ ALLOWED_HOSTS = ['localhost']
 
 INSTALLED_APPS = [
     'testdb',
+    'users',
     'environ',
     'rest_framework',
     'corsheaders',
+    'bcrypt',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -101,6 +103,14 @@ DATABASES = {
         'PORT': env("DB_PORT"),
     }
 }
+
+PASSWORD_HASHERS = [
+    "django.contrib.auth.hashers.BCryptSHA256PasswordHasher",
+    "django.contrib.auth.hashers.PBKDF2PasswordHasher",
+    "django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher",
+    "django.contrib.auth.hashers.Argon2PasswordHasher",
+    "django.contrib.auth.hashers.ScryptPasswordHasher",
+]
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
