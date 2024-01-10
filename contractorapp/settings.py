@@ -38,6 +38,9 @@ ALLOWED_HOSTS = ['localhost']
 INSTALLED_APPS = [
     'testdb',
     'users',
+    'tododb',
+    'jobsdb',
+    'jobboarddb',
     'environ',
     'rest_framework',
     'corsheaders',

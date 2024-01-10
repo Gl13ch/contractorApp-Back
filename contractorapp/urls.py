@@ -21,6 +21,9 @@ from django.conf.urls import include
 urlpatterns = [
     path('', include('testdb.urls')),
     path('', include('users.urls')),
+    path('', include('tododb.urls')),
+    path('', include('jobsdb.urls')),
+    path('', include('jobboarddb.urls')),
     path('admin/', admin.site.urls),
 ]
 
