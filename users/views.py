@@ -2,8 +2,8 @@
 
 # Create your views here.
 from rest_framework import generics
-from .serializers import UserSerializer, AddressSerializer
-from .models import User, Address
+from .serializers import UserSerializer
+from .models import User
 
 ### ALLOWS YOU TO CREATE AND CHECK PASSWORDS
 from django.contrib.auth.hashers import make_password, check_password
@@ -19,14 +19,6 @@ class UserList(generics.ListCreateAPIView):
 class UserDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = User.objects.all().order_by('id')
     serializer_class = UserSerializer
-
-class AddressList(generics.ListCreateAPIView):
-    queryset = Address.objects.all().order_by('id')
-    serializer_class = AddressSerializer
-
-class AddressDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Address.objects.all().order_by('id')
-    serializer_class = AddressSerializer
 
 ### THIS IS THE FUNCTION THAT PERFORMS AUTH
 def check_login(request):
