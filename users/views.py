@@ -32,11 +32,12 @@ def check_login(request):
         jsonRequest = json.loads(request.body) #make the request JSON format
         email = jsonRequest['email'] #get the username from the request
         password = jsonRequest['password'] #get the password from the request
+        phone = jsonRequest['phone']
         try:
             if User.objects.get(email=email): #see if username exists in db
                 user = User.objects.get(email=email)  #find user object with matching username
                 if check_password(password, user.password): #check if passwords match
-                    return JsonResponse({'id': user.id, 'username': user.email}) #if passwords match, return a user dict
+                    return JsonResponse({'id': user.id, 'email': user.email}) #if passwords match, return a user dict
                 else: #passwords don't match
                     return JsonResponse({"error":"Incorrect Password"})
             else: #if username doesn't exist in db, return empty dict
