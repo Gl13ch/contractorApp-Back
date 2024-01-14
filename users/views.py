@@ -32,7 +32,6 @@ def check_login(request):
         jsonRequest = json.loads(request.body) #make the request JSON format
         email = jsonRequest['email'] #get the username from the request
         password = jsonRequest['password'] #get the password from the request
-        phone = jsonRequest['phone']
         try:
             if User.objects.get(email=email): #see if username exists in db
                 user = User.objects.get(email=email)  #find user object with matching username
