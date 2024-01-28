@@ -1,12 +1,24 @@
 from rest_framework import generics
-from .serializers import ToDoSerializers
-from .models import ToDo
+from .serializers import PunchSerializers, PunchListSerializers
+from .models import Punch, Punchlist
 
 # Create your views here.
-class ToDoList(generics.ListCreateAPIView):
-    queryset = ToDo.objects.all().order_by('id')
-    serializer_class = ToDoSerializers
+class PunchList(generics.ListCreateAPIView):
+    queryset = Punch.objects.all().order_by('id')
+    serializer_class = PunchSerializers
 
-class ToDoDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = ToDo.objects.all().order_by('id')
-    serializer_class = ToDoSerializers
+class PunchDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Punch.objects.all().order_by('id')
+    serializer_class = PunchSerializers
+    
+class PunchListList(generics.ListCreateAPIView):
+    queryset = Punchlist.objects.all().order_by('id')
+    serializer_class = PunchListSerializers
+
+class PunchListDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Punchlist.objects.all().order_by('id')
+    serializer_class = PunchListSerializers
+
+
+
+

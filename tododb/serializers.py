@@ -1,7 +1,12 @@
 from rest_framework import serializers 
-from . models import ToDo
+from . models import Punch, Punchlist
 
-class ToDoSerializers(serializers.ModelSerializer):
+class PunchSerializers(serializers.ModelSerializer):
     class Meta: 
-        model = ToDo
-        fields = ['id','checked','detail']
+        model = Punch
+        fields = ['id','checked','detail', 'punchlist_list']
+
+class PunchListSerializers(serializers.ModelSerializer):
+    class Meta: 
+        model = Punchlist
+        fields = ['id','name_of_punchlist']
